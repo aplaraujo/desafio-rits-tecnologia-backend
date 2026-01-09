@@ -1,3 +1,9 @@
 spring:
   application:
     name: desafio-rits-tecnologia-backend
+
+  profiles:
+    active: test
+
+  jpa:
+    open-in-view: false
