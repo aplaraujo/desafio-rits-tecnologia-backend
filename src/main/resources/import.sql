@@ -22,3 +22,16 @@ INSERT INTO tb_product(name, price) VALUES ('Hot Dog Simples', 9.0);
 INSERT INTO tb_product(name, price) VALUES ('Hot Dog Completo', 12.0);
 INSERT INTO tb_product(name, price) VALUES ('Hot Dog Duplo', 15.0);
 INSERT INTO tb_product(name, price) VALUES ('Hot Dog Especial', 17.0);
+
+INSERT INTO tb_order(client_id, id, order_status) VALUES (2, 1, 'EM_PREPARO');
+INSERT INTO tb_order(client_id, id, order_status) VALUES (3, 2, 'EM_PREPARO');
+INSERT INTO tb_order(client_id, id, order_status) VALUES (3, 3, 'EM_ENTREGA');
+INSERT INTO tb_order(client_id, id, order_status) VALUES (4, 4, 'ENTREGUE');
+INSERT INTO tb_order(client_id, id, order_status) VALUES (5, 5, 'CANCELADO');
+
+INSERT INTO tb_order_product(order_id, product_id) VALUES (1, 1);
+INSERT INTO tb_order_product(order_id, product_id) VALUES (2, 2);
+INSERT INTO tb_order_product(order_id, product_id) VALUES (3, 4);
+INSERT INTO tb_order_product(order_id, product_id) VALUES (4, 5);
+INSERT INTO tb_order_product(order_id, product_id) VALUES (5, 5);
+
