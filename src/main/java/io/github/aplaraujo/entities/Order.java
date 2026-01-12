@@ -13,4 +13,8 @@ public class Order {
     private Long productId;
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 }
