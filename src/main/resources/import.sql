@@ -1,0 +1,18 @@
+INSERT INTO tb_product(name, price) VALUES ('X-Burger', 12.0);
+INSERT INTO tb_product(name, price) VALUES ('X-Salada', 14.0);
+INSERT INTO tb_product(name, price) VALUES ('X-Bacon', 16.0);
+INSERT INTO tb_product(name, price) VALUES ('X-Egg', 15.0);
+INSERT INTO tb_product(name, price) VALUES ('X-Egg Bacon', 17.5);
+INSERT INTO tb_product(name, price) VALUES ('X-Tudo', 20.0);
+INSERT INTO tb_product(name, price) VALUES ('Misto Quente', 8.0);
+INSERT INTO tb_product(name, price) VALUES ('Americano', 10.0);
+INSERT INTO tb_product(name, price) VALUES ('Burger Clássico', 18.0);
+INSERT INTO tb_product(name, price) VALUES ('Burger Cheddar', 20.0);
+INSERT INTO tb_product(name, price) VALUES ('Burger Bacon', 22.0);
+INSERT INTO tb_product(name, price) VALUES ('Burger Duplo', 25.0);
+INSERT INTO tb_product(name, price) VALUES ('Burger BBQ', 23.0);
+INSERT INTO tb_product(name, price) VALUES ('Burger Veggie', 21.0);
+INSERT INTO tb_product(name, price) VALUES ('Hot Dog Simples', 9.0);
+INSERT INTO tb_product(name, price) VALUES ('Hot Dog Completo', 12.0);
+INSERT INTO tb_product(name, price) VALUES ('Hot Dog Duplo', 15.0);
+INSERT INTO tb_product(name, price) VALUES ('Hot Dog Especial', 17.0);
