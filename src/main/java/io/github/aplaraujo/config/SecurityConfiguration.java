@@ -1,5 +1,6 @@
 package io.github.aplaraujo.config;
 
+import io.github.aplaraujo.controllers.handlers.CustomAuthenticationEntryPoint;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
 @RequiredArgsConstructor
 public class SecurityConfiguration {
+    private final CustomAuthenticationEntryPoint authenticationEntryPoint;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
@@ -33,6 +35,9 @@ public class SecurityConfiguration {
                                         .anyRequest().authenticated()
                 )
                 .headers(header -> header.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
+                .exceptionHandling(ex ->
+                        ex.authenticationEntryPoint(authenticationEntryPoint)
+                        )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .build();
     }
