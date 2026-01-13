@@ -1,8 +1,8 @@
-INSERT INTO tb_client(name, email, phone, address, password) VALUES('Caroline Nair da Costa', 'carolinenairdacosta@outllok.com', '(53) 99678-1222', 'Rua Alexandre Mendonça, 668', 'qo7w7BN7wX');
-INSERT INTO tb_client(name, email, phone, address, password) VALUES('Hugo Vitor Martins', 'hugovitormartins@iclud.com', '(96) 98749-2210', 'Rua F, 370', 'AgZ463qGli');
-INSERT INTO tb_client(name, email, phone, address, password) VALUES('Giovanni Henrique Cavalcanti', 'giovannihenriquecavalcanti@megamega.com.br', '(34) 99206-8731', 'Rua Garcia, 865', 'x4bysnwYYh');
-INSERT INTO tb_client(name, email, phone, address, password) VALUES('Rafael Miguel Bernardes', 'rafael_miguel_bernardes@cosma.com', '(68) 98547-5574', 'Travessa Tefé, 411', '1dst13mohf');
-INSERT INTO tb_client(name, email, phone, address, password) VALUES('Isis Sophia Dias', 'isis_dias@iclud.com', '(27) 98128-4005', 'Rua João Cipreste Filho, 354', 'BDPJO7Q269');
+INSERT INTO tb_client(name, email, phone, address, password) VALUES('Caroline Nair da Costa', 'carolinenairdacosta@outllok.com', '(53) 99678-1222', 'Rua Alexandre Mendonça, 668', '$2a$16$RDH5jD.8oCJtwXZQm5Vc6.Lh26k0gP8kJimDreNwV8SJYfGAaPv.y');
+INSERT INTO tb_client(name, email, phone, address, password) VALUES('Hugo Vitor Martins', 'hugovitormartins@iclud.com', '(96) 98749-2210', 'Rua F, 370', '$2a$16$lIghI0eTss0rWCghKfuJceDIggeW.6DxXs.NKDiG1ebhrDfRSb8qe');
+INSERT INTO tb_client(name, email, phone, address, password) VALUES('Giovanni Henrique Cavalcanti', 'giovannihenriquecavalcanti@megamega.com.br', '(34) 99206-8731', 'Rua Garcia, 865', '$2a$16$nXlTZGNyVv1ZXBdNIt6p.eRuZkinbfrBcGrFLKzJLOgxsNpQNPy/C');
+INSERT INTO tb_client(name, email, phone, address, password) VALUES('Rafael Miguel Bernardes', 'rafael_miguel_bernardes@cosma.com', '(68) 98547-5574', 'Travessa Tefé, 411', '$2a$16$jWbTBkQDkrfi4qjAAI85R.6bvVMRNSFWTXk8tPWEWTsOKTcEe7Uuu');
+INSERT INTO tb_client(name, email, phone, address, password) VALUES('Isis Sophia Dias', 'isis_dias@iclud.com', '(27) 98128-4005', 'Rua João Cipreste Filho, 354', '$2a$16$JWB47.oLh9YwzZavcm.ziOQ4lHX3PLELCumr08j9asbw9kqiVjoK6');
 
 INSERT INTO tb_product(name, price) VALUES ('X-Burger', 12.0);
 INSERT INTO tb_product(name, price) VALUES ('X-Salada', 14.0);
