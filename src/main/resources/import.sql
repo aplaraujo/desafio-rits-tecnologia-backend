@@ -4,6 +4,16 @@ INSERT INTO tb_client(name, email, phone, address, password) VALUES('Giovanni He
 INSERT INTO tb_client(name, email, phone, address, password) VALUES('Rafael Miguel Bernardes', 'rafael_miguel_bernardes@cosma.com', '(68) 98547-5574', 'Travessa Tefé, 411', '$2a$16$jWbTBkQDkrfi4qjAAI85R.6bvVMRNSFWTXk8tPWEWTsOKTcEe7Uuu');
 INSERT INTO tb_client(name, email, phone, address, password) VALUES('Isis Sophia Dias', 'isis_dias@iclud.com', '(27) 98128-4005', 'Rua João Cipreste Filho, 354', '$2a$16$JWB47.oLh9YwzZavcm.ziOQ4lHX3PLELCumr08j9asbw9kqiVjoK6');
 
+INSERT INTO tb_role(authority) VALUES('ROLE_ADMIN');
+INSERT INTO tb_role(authority) VALUES('ROLE_CLIENT');
+
+INSERT INTO tb_client_role (client_id, role_id) VALUES (1, 1);
+INSERT INTO tb_client_role (client_id, role_id) VALUES (1, 2);
+INSERT INTO tb_client_role (client_id, role_id) VALUES (2, 2);
+INSERT INTO tb_client_role (client_id, role_id) VALUES (3, 2);
+INSERT INTO tb_client_role (client_id, role_id) VALUES (4, 2);
+INSERT INTO tb_client_role (client_id, role_id) VALUES (5, 2);
+
 INSERT INTO tb_product(name, price) VALUES ('X-Burger', 12.0);
 INSERT INTO tb_product(name, price) VALUES ('X-Salada', 14.0);
 INSERT INTO tb_product(name, price) VALUES ('X-Bacon', 16.0);
