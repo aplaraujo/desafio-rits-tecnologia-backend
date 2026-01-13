@@ -27,8 +27,9 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
                         auth ->
-                                auth.requestMatchers("/auth/token", "auth/user", "/products").permitAll()
+                                auth.requestMatchers("/auth/token", "auth/user").permitAll()
                                         .requestMatchers("/h2-console/**").permitAll()
+                                        .requestMatchers("/products/**").permitAll()
                                         .anyRequest().authenticated()
                 )
                 .headers(header -> header.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
