@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class ProductService {
@@ -23,5 +25,9 @@ public class ProductService {
         }
 
         return repository.findAll(pageable);
+    }
+
+    public Optional<Product> findById(Long id) {
+        return repository.findById(id);
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(properties = {
-        "JWT_SECRET=8D!x:QBlgd6Hr5ME6f@sVR+Sj2EY3;InZyRDo)nQQ9C",
+        "JWT_SECRET=mFiRiSPbDQIEIKztvpVKjSOVCo6SgcPWCdU9x4ADFH0",
         "JWT_DURATION=86400"
 })
 @AutoConfigureMockMvc
@@ -57,8 +58,8 @@ public class ProductControllerIntegrationTest {
         result.andExpect(jsonPath("$.content").exists());
         result.andExpect(jsonPath("$.content[0].name").value("Americano"));
         result.andExpect(jsonPath("$.content[1].name").value("Burger BBQ"));
-        result.andExpect(jsonPath("$.content[0].name").value("Burger Bacon"));
-        result.andExpect(jsonPath("$.content[0].name").value("Burger Cheddar"));
+        result.andExpect(jsonPath("$.content[2].name").value("Burger Bacon"));
+        result.andExpect(jsonPath("$.content[3].name").value("Burger Cheddar"));
     }
 
     @Test
