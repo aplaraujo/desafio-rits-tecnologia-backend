@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(properties = {
         "JWT_SECRET=8D!x:QBlgd6Hr5ME6f@sVR+Sj2EY3;InZyRDo)nQQ9C",
-        "JWT_DURATION:86400"
+        "JWT_DURATION=86400"
 })
 @AutoConfigureMockMvc
 @Transactional
