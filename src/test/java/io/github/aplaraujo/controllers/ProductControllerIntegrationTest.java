@@ -95,42 +95,42 @@ public class ProductControllerIntegrationTest {
     }
 
     @Test
-    public void insertProductShouldReturn422WhenAdminIsLoggedAndNameFieldIsEmpty() {
-        // ProductDTO dto = new ProductDTO("   ", 10.0);
-        //        ResultActions result = mockMvc.perform(post("/products")
-//                .header("Authorization", "Bearer " + token)
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-//        result.andExpect(status().isUnprocessableEntity());
-//        result.andExpect(jsonPath("$.status").value(422));
-//        result.andExpect(jsonPath("$.message").value("Invalid data"));
-//        result.andExpect(jsonPath("$.errors[0].field").value("name"));
-//        result.andExpect(jsonPath("$.errors[0].error").value("This field should not be empty"));
+    public void insertProductShouldReturn422WhenAdminIsLoggedAndNameFieldIsEmpty() throws Exception {
+         ProductDTO dto = new ProductDTO(19L, "   ", 10.0);
+                ResultActions result = mockMvc.perform(post("/products")
+                .header("Authorization", "Bearer " + token)
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+        result.andExpect(status().isUnprocessableEntity());
+        result.andExpect(jsonPath("$.status").value(422));
+        result.andExpect(jsonPath("$.message").value("Invalid data"));
+        result.andExpect(jsonPath("$.errors[0].field").value("name"));
+        result.andExpect(jsonPath("$.errors[0].error").value("This field should not be empty"));
     }
 
     @Test
-    public void insertProductShouldReturn422WhenAdminIsLoggedAndNameFieldIsOutTheRangeFrom3To100Characters() {
-        // ProductDTO dto = new ProductDTO("Ba", 10.0);
-        //        ResultActions result = mockMvc.perform(post("/products")
-//                .header("Authorization", "Bearer " + token)
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-        //        result.andExpect(status().isUnprocessableEntity());
-//        result.andExpect(jsonPath("$.status").value(422));
-//        result.andExpect(jsonPath("$.message").value("Invalid data"));
-//        result.andExpect(jsonPath("$.errors[0].field").value("name"));
-//        result.andExpect(jsonPath("$.errors[0].error").value("The name should have from 3 to 100 characters"));
+    public void insertProductShouldReturn422WhenAdminIsLoggedAndNameFieldIsOutTheRangeFrom3To100Characters() throws Exception {
+         ProductDTO dto = new ProductDTO(19L, "Ba", 10.0);
+                ResultActions result = mockMvc.perform(post("/products")
+                .header("Authorization", "Bearer " + token)
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+                result.andExpect(status().isUnprocessableEntity());
+        result.andExpect(jsonPath("$.status").value(422));
+        result.andExpect(jsonPath("$.message").value("Invalid data"));
+        result.andExpect(jsonPath("$.errors[0].field").value("name"));
+        result.andExpect(jsonPath("$.errors[0].error").value("The name should have from 3 to 100 characters"));
     }
 
     @Test
-    public void insertProductShouldReturn422WhenAdminIsLoggedAndPriceFieldIsNegativeOrEqualToZero() {
-        // ProductDTO dto = new ProductDTO("Batata Frita Pequena", 0.0);
-        //        ResultActions result = mockMvc.perform(post("/products")
-//                .header("Authorization", "Bearer " + token)
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-        //        result.andExpect(status().isUnprocessableEntity());
-//        result.andExpect(jsonPath("$.status").value(422));
-//        result.andExpect(jsonPath("$.message").value("Invalid data"));
-//        result.andExpect(jsonPath("$.errors[0].field").value("price"));
-//        result.andExpect(jsonPath("$.errors[0].error").value("The price should be positive"));
+    public void insertProductShouldReturn422WhenAdminIsLoggedAndPriceFieldIsNegativeOrEqualToZero() throws Exception {
+         ProductDTO dto = new ProductDTO(19L, "Batata Frita Pequena", 0.0);
+                ResultActions result = mockMvc.perform(post("/products")
+                .header("Authorization", "Bearer " + token)
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+                result.andExpect(status().isUnprocessableEntity());
+        result.andExpect(jsonPath("$.status").value(422));
+        result.andExpect(jsonPath("$.message").value("Invalid data"));
+        result.andExpect(jsonPath("$.errors[0].field").value("price"));
+        result.andExpect(jsonPath("$.errors[0].error").value("The price should be positive"));
     }
 
     @Test
