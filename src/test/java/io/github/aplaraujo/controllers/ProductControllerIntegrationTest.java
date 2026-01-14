@@ -1,6 +1,7 @@
 package io.github.aplaraujo.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.aplaraujo.dto.ProductDTO;
 import io.github.aplaraujo.test.TokenUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,8 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -87,11 +87,11 @@ public class ProductControllerIntegrationTest {
 
     @Test
     public void insertProductShouldReturn201WhenAdminIsLoggedAndAllDataIsValid() throws Exception {
-        // ProductDTO dto = new ProductDTO("Batata Frita Pequena", 10.0);
-//        ResultActions result = mockMvc.perform(post("/products")
-//                .header("Authorization", "Bearer " + token)
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-        // result.andExpect(status().isCreated());
+        ProductDTO dto = new ProductDTO(19L,"Batata Frita Pequena", 10.0);
+        ResultActions result = mockMvc.perform(post("/products")
+                .header("Authorization", "Bearer " + token)
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+         result.andExpect(status().isCreated());
     }
 
     @Test

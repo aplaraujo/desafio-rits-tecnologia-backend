@@ -2,6 +2,7 @@ package io.github.aplaraujo.services;
 
 import io.github.aplaraujo.dto.ProductDTO;
 import io.github.aplaraujo.entities.Product;
+import io.github.aplaraujo.mappers.ProductMapper;
 import io.github.aplaraujo.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository repository;
+    private final ProductMapper mapper;
 
     public Page<Product> search(String name, Integer page, Integer pageSize) {
         Pageable pageable = PageRequest.of(page, pageSize, Sort.by("name").ascending());
@@ -29,5 +31,11 @@ public class ProductService {
 
     public Optional<Product> findById(Long id) {
         return repository.findById(id);
+    }
+
+    public ProductDTO insert(ProductDTO dto) {
+        Product product = mapper.toEntity(dto);
+        product = repository.save(product);
+        return mapper.toDTO(product);
     }
 }
