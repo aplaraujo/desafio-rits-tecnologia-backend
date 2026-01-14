@@ -36,7 +36,7 @@ public class SecurityConfiguration {
                         auth ->
                                 auth.requestMatchers("/auth/token", "auth/user").permitAll()
                                         .requestMatchers("/h2-console/**").permitAll()
-                                        .requestMatchers("/products/**").permitAll()
+                                        .requestMatchers("/catalog/**").permitAll()
                                         .anyRequest().authenticated()
                 )
                 .headers(header -> header.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
