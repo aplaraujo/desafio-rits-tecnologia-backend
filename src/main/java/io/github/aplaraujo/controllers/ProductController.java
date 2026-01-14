@@ -4,6 +4,7 @@ import io.github.aplaraujo.dto.ProductDTO;
 import io.github.aplaraujo.entities.Product;
 import io.github.aplaraujo.mappers.ProductMapper;
 import io.github.aplaraujo.services.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,7 +29,7 @@ public class ProductController implements GenericController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
-    public ResponseEntity<Void> insertProduct(@RequestBody ProductDTO dto) {
+    public ResponseEntity<Void> insertProduct(@RequestBody @Valid ProductDTO dto) {
         service.insert(dto);
         var url = generateHeaderLocation(dto.id());
         return ResponseEntity.created(url).build();
