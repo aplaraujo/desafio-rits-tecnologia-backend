@@ -38,4 +38,15 @@ public class ProductService {
         product = repository.save(product);
         return mapper.toDTO(product);
     }
+
+    public void update(Product product) {
+        if (product.getId() == null) {
+            throw new IllegalArgumentException("Product not found!");
+        }
+        repository.save(product);
+    }
+
+    public void delete(Product product) {
+        repository.delete(product);
+    }
 }
