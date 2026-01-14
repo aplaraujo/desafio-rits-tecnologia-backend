@@ -34,4 +34,26 @@ public class ProductController implements GenericController {
         var url = generateHeaderLocation(dto.id());
         return ResponseEntity.created(url).build();
     }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateProduct(@PathVariable("id") String id, @RequestBody @Valid ProductDTO dto) {
+        var productId = Long.parseLong(id);
+        return service.findById(productId).map(prod -> {
+            prod.setName(dto.name());
+            prod.setPrice(dto.price());
+            service.update(prod);
+            return ResponseEntity.noContent().build();
+        }).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> delete(@PathVariable("id") String id) {
+        var productId = Long.parseLong(id);
+        return service.findById(productId).map(prod -> {
+            service.delete(prod);
+            return ResponseEntity.noContent().build();
+        }).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }

@@ -134,105 +134,102 @@ public class ProductControllerIntegrationTest {
     }
 
     @Test
-    public void insertProductShouldReturn401WhenAdminIsNotLogged() {
-        // ProductDTO dto = new ProductDTO("Batata Frita Pequena", 10.0);
-//        ResultActions result = mockMvc.perform(post("/products")
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-        // result.andExpect(status().isUnauthorized());
+    public void insertProductShouldReturn401WhenAdminIsNotLogged() throws Exception {
+         ProductDTO dto = new ProductDTO(19L, "Batata Frita Pequena", 10.0);
+        ResultActions result = mockMvc.perform(post("/products")
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+         result.andExpect(status().isUnauthorized());
     }
 
     @Test
-    public void insertProdictShouldReturn403WhenClientIsLogged() {
-        // ProductDTO dto = new ProductDTO("Batata Frita Pequena", 10.0);
-//        ResultActions result = mockMvc.perform(post("/products")
-//                .header("Authorization", "Bearer " + clientToken)
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-//         result.andExpect(status().isForbidden());
+    public void insertProductShouldReturn403WhenClientIsLogged() throws Exception {
+         ProductDTO dto = new ProductDTO(19L,"Batata Frita Pequena", 10.0);
+        ResultActions result = mockMvc.perform(post("/products")
+                .header("Authorization", "Bearer " + clientToken)
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+         result.andExpect(status().isForbidden());
     }
 
     @Test
-    public void updateProductShouldReturn200WhenAdminIsLoggedAndAllDataIsValid() throws Exception {
-        // ProductDTO dto = new ProductDTO(existentProductId, "X-Burger Especial", 10.5);
-//        ResultActions result = mockMvc.perform(put("/products" + existentProductId)
-//                .header("Authorization", "Bearer " + token)
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-        // result.andExpect(status().isOk());
-        // result.andExpect(jsonPath("$.id").value(existentProductId));
-        // result.andExpect(jsonPath("$.name").value("X-Burger Especial"));
-        // result.andExpect(jsonPath("$.price").value(10.5));
+    public void updateProductShouldReturn204WhenAdminIsLoggedAndAllDataIsValid() throws Exception {
+        ProductDTO dto = new ProductDTO(existentProductId, "X-Burger Especial", 10.5);
+        ResultActions result = mockMvc.perform(put("/products/" + existentProductId)
+                .header("Authorization", "Bearer " + token)
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+         result.andExpect(status().isNoContent());
     }
 
     @Test
     public void updateProductShouldReturn422WhenAdminIsLoggedAndTheNameFieldIsEmpty() throws Exception {
-        // ProductDTO dto = new ProductDTO(existentProductId, "   ", 10.5);
-//        ResultActions result = mockMvc.perform(put("/products" + existentProductId)
-//                .header("Authorization", "Bearer " + token)
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-//        result.andExpect(status().isUnprocessableEntity());
-//        result.andExpect(jsonPath("$.status").value(422));
-//        result.andExpect(jsonPath("$.message").value("Invalid data"));
-//        result.andExpect(jsonPath("$.errors[0].field").value("name"));
-//        result.andExpect(jsonPath("$.errors[0].error").value("This field should not be empty"));
+         ProductDTO dto = new ProductDTO(existentProductId, "   ", 10.5);
+        ResultActions result = mockMvc.perform(put("/products/" + existentProductId)
+                .header("Authorization", "Bearer " + token)
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+        result.andExpect(status().isUnprocessableEntity());
+        result.andExpect(jsonPath("$.status").value(422));
+        result.andExpect(jsonPath("$.message").value("Invalid data"));
+        result.andExpect(jsonPath("$.errors[0].field").value("name"));
+        result.andExpect(jsonPath("$.errors[0].error").value("This field should not be empty"));
     }
 
     @Test
     public void updateProductShouldReturn422WhenAdminIsLoggedAndTheNameFieldIsOutTheRangeFrom3To100Characters() throws Exception {
-        // ProductDTO dto = new ProductDTO(existentProductId, "X", 10.5);
-//        ResultActions result = mockMvc.perform(put("/products" + existentProductId)
-//                .header("Authorization", "Bearer " + token)
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-        //        result.andExpect(status().isUnprocessableEntity());
-//        result.andExpect(jsonPath("$.status").value(422));
-//        result.andExpect(jsonPath("$.message").value("Invalid data"));
-//        result.andExpect(jsonPath("$.errors[0].field").value("name"));
-//        result.andExpect(jsonPath("$.errors[0].error").value("The name should have from 3 to 100 characters"));
+         ProductDTO dto = new ProductDTO(existentProductId, "X", 10.5);
+        ResultActions result = mockMvc.perform(put("/products/" + existentProductId)
+                .header("Authorization", "Bearer " + token)
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+                result.andExpect(status().isUnprocessableEntity());
+        result.andExpect(jsonPath("$.status").value(422));
+        result.andExpect(jsonPath("$.message").value("Invalid data"));
+        result.andExpect(jsonPath("$.errors[0].field").value("name"));
+        result.andExpect(jsonPath("$.errors[0].error").value("The name should have from 3 to 100 characters"));
     }
 
     @Test
     public void updateProductShouldReturn422WhenAdminIsLoggedAndThePriceFieldIsNegativeOrEqualToZero() throws Exception {
-        // ProductDTO dto = new ProductDTO(existentProductId, "X-Burger Especial", 0.0);
-//        ResultActions result = mockMvc.perform(put("/products" + existentProductId)
-//                .header("Authorization", "Bearer " + token)
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-        //        result.andExpect(status().isUnprocessableEntity());
-//        result.andExpect(jsonPath("$.status").value(422));
-//        result.andExpect(jsonPath("$.message").value("Invalid data"));
-//        result.andExpect(jsonPath("$.errors[0].field").value("price"));
-//        result.andExpect(jsonPath("$.errors[0].error").value("The price should be positive"));
+         ProductDTO dto = new ProductDTO(existentProductId, "X-Burger Especial", 0.0);
+        ResultActions result = mockMvc.perform(put("/products/" + existentProductId)
+                .header("Authorization", "Bearer " + token)
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+                result.andExpect(status().isUnprocessableEntity());
+        result.andExpect(jsonPath("$.status").value(422));
+        result.andExpect(jsonPath("$.message").value("Invalid data"));
+        result.andExpect(jsonPath("$.errors[0].field").value("price"));
+        result.andExpect(jsonPath("$.errors[0].error").value("The price should be positive"));
     }
 
     @Test
     public void updateProductShouldReturn401WhenAdminIsNotLogged() throws Exception {
-        // ProductDTO dto = new ProductDTO(existentProductId, "X-Burger Especial", 10.5);
-//        ResultActions result = mockMvc.perform(put("/products" + existentProductId)
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-        // result.andExpect(status().isUnauthorized());
+         ProductDTO dto = new ProductDTO(existentProductId, "X-Burger Especial", 10.5);
+        ResultActions result = mockMvc.perform(put("/products/" + existentProductId)
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+         result.andExpect(status().isUnauthorized());
     }
 
     @Test
     public void updateProductShouldReturn403WhenClientIsLogged() throws Exception {
-        // ProductDTO dto = new ProductDTO(existentProductId, "X-Burger Especial", 10.5);
-//        ResultActions result = mockMvc.perform(put("/products" + existentProductId)
-//                .header("Authorization", "Bearer " + clientToken)
-//                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
-        //         result.andExpect(status().isForbidden());
+         ProductDTO dto = new ProductDTO(existentProductId, "X-Burger Especial", 10.5);
+        ResultActions result = mockMvc.perform(put("/products/" + existentProductId)
+                .header("Authorization", "Bearer " + clientToken)
+                .content(objectMapper.writeValueAsString(dto)).contentType(MediaType.APPLICATION_JSON));
+                 result.andExpect(status().isForbidden());
     }
 
     @Test
     public void deleteProductShouldReturn204WhenAdminIsLoggedAndIdExists() throws Exception {
-        ResultActions result = mockMvc.perform(delete("/todos/" + existentProductId).header("Authorization", "Bearer " + token).contentType(MediaType.APPLICATION_JSON));
+        ResultActions result = mockMvc.perform(delete("/products/" + existentProductId).header("Authorization", "Bearer " + token).contentType(MediaType.APPLICATION_JSON));
         result.andExpect(status().isNoContent());
     }
 
     @Test
     public void deleteProductShouldReturn401WhenAdminIsNotLogged() throws Exception {
-        ResultActions result = mockMvc.perform(delete("/todos/" + existentProductId).contentType(MediaType.APPLICATION_JSON));
+        ResultActions result = mockMvc.perform(delete("/products/" + existentProductId).contentType(MediaType.APPLICATION_JSON));
         result.andExpect(status().isUnauthorized());
     }
 
     @Test
     public void deleteProductShouldReturn403WhenClientIsLogged() throws Exception {
-        ResultActions result = mockMvc.perform(delete("/todos/" + existentProductId).header("Authorization", "Bearer " + clientToken).contentType(MediaType.APPLICATION_JSON));
+        ResultActions result = mockMvc.perform(delete("/products/" + existentProductId).header("Authorization", "Bearer " + clientToken).contentType(MediaType.APPLICATION_JSON));
         result.andExpect(status().isForbidden());
     }
 }
