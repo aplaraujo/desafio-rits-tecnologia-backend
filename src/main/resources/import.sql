@@ -32,11 +32,11 @@ INSERT INTO tb_product(name, price) VALUES ('Hot Dog Completo', 12.0);
 INSERT INTO tb_product(name, price) VALUES ('Hot Dog Duplo', 15.0);
 INSERT INTO tb_product(name, price) VALUES ('Hot Dog Especial', 17.0);
 
-INSERT INTO tb_order(id, client_id, created_At, order_status) VALUES (1, 2, TIMESTAMP WITH TIME ZONE '2026-01-12T18:19:20.673204744Z', 'EM_PREPARO');
-INSERT INTO tb_order(id, client_id, created_At, order_status) VALUES (2, 3, TIMESTAMP WITH TIME ZONE '2026-01-12T18:19:20.673204744Z', 'EM_PREPARO');
-INSERT INTO tb_order(id, client_id, created_At, order_status) VALUES (3, 3, TIMESTAMP WITH TIME ZONE '2026-01-12T18:19:20.673204744Z', 'EM_ENTREGA');
-INSERT INTO tb_order(id, client_id, created_At, order_status) VALUES (4, 4, TIMESTAMP WITH TIME ZONE '2026-01-12T18:19:20.673204744Z', 'ENTREGUE');
-INSERT INTO tb_order(id, client_id, created_At, order_status) VALUES (5, 5, TIMESTAMP WITH TIME ZONE '2026-01-12T18:19:20.673204744Z', 'CANCELADO');
+INSERT INTO tb_order(client_id, created_At, order_status) VALUES (2, TIMESTAMP WITH TIME ZONE '2026-01-12T18:19:20.673204744Z', 'EM_PREPARO');
+INSERT INTO tb_order(client_id, created_At, order_status) VALUES (3, TIMESTAMP WITH TIME ZONE '2026-01-12T18:19:20.673204744Z', 'EM_PREPARO');
+INSERT INTO tb_order(client_id, created_At, order_status) VALUES (3, TIMESTAMP WITH TIME ZONE '2026-01-12T18:19:20.673204744Z', 'EM_ENTREGA');
+INSERT INTO tb_order(client_id, created_At, order_status) VALUES (4, TIMESTAMP WITH TIME ZONE '2026-01-12T18:19:20.673204744Z', 'ENTREGUE');
+INSERT INTO tb_order(client_id, created_At, order_status) VALUES (5, TIMESTAMP WITH TIME ZONE '2026-01-12T18:19:20.673204744Z', 'CANCELADO');
 
 INSERT INTO tb_order_product(order_id, product_id) VALUES (1, 2);
 INSERT INTO tb_order_product(order_id, product_id) VALUES (2, 1);

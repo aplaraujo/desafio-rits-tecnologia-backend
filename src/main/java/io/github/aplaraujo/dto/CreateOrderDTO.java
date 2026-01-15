@@ -7,9 +7,7 @@ import jakarta.validation.constraints.Positive;
 
 import java.util.List;
 
-public record OrderDTO(
-        Long id,
-
+public record CreateOrderDTO(
         @Positive(message = "This id should be positive")
         Long clientId,
 
@@ -17,5 +15,6 @@ public record OrderDTO(
         List<ProductDTO> products,
 
         @NotNull(message = "This field should not be null")
-        OrderStatus orderStatus) {
+        OrderStatus orderStatus
+) {
 }

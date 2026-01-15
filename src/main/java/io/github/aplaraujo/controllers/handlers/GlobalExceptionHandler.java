@@ -16,7 +16,7 @@ import java.util.List;
 public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-    public ValidationError handleMethodargumentNotValidException(MethodArgumentNotValidException e) {
+    public ValidationError handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         List<FieldError> fieldErrors = e.getFieldErrors();
         List<FieldMessage> list = fieldErrors.stream().map(fe -> new FieldMessage(fe.getField(), fe.getDefaultMessage())).toList();
         return new ValidationError(HttpStatus.UNPROCESSABLE_ENTITY.value(), "Invalid data", list);
