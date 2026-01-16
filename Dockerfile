@@ -1,11 +1,10 @@
-FROM ubuntu:latest
-LABEL authors="anapa"
+FROM ubuntu:24.04
 
 RUN apt-get update
-RUN apt-get install openjdk-21-jdk -y
+RUN apt-get install -y openjdk-21-jdk
 COPY . .
 
-RUN apt-get install maven -y
+RUN apt-get install -y maven
 RUN mvn clean install
 
 FROM openjdk:21-jdk-slim
