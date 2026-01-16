@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/ritsdatabase
-    username: postgres
-    password: 123456
+    url: jdbc:postgresql://dpg-d5ko0c6id0rc73aksatg-a:5433/ritsdatabase
+    username: admin
+    password: QvgozauylI11IctQqpLJnggU5Fe6bTgJ
     driver-class-name: org.postgresql.Driver
   jpa:
     show_sql: true
