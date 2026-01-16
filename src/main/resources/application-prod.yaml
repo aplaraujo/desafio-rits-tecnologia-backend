@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-d5ko0c6id0rc73aksatg-a:5433/ritsdatabase
+    url: jdbc:postgresql://dpg-d5ko0c6id0rc73aksatg-a:5432/ritsdatabase
     username: admin
     password: QvgozauylI11IctQqpLJnggU5Fe6bTgJ
     driver-class-name: org.postgresql.Driver
