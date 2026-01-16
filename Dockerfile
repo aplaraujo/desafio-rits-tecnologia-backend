@@ -1,13 +1,13 @@
 FROM ubuntu:24.04
 
 RUN apt-get update
-RUN apt-get install -y openjdk-21-jdk
+RUN apt-get install -y eclipse-temurin:21
 COPY . .
 
 RUN apt-get install -y maven
 RUN mvn clean install
 
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jdk-slim
 
 EXPOSE 8080
 
