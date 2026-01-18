@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show_sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.format_sql: false
+
+security:
+  jwt:
+    secret-key: ${JWT_SECRET}
+    duration: ${JWT_DURATION}
