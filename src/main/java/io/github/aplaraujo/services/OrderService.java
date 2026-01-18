@@ -43,15 +43,6 @@ public class OrderService {
         }
 
         return repository.findByIdAndClientId(id, clientId).orElseThrow(() -> new ResourceNotFoundException("Order not found with id: " + id + " for client: " + clientId));
-
-//        Order order = repository.findById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException("Order not found with id: " + id));
-//
-//        if (!order.getClient().getId().equals(clientId)) {
-//            throw new OperationNotAllowedException("You don't have permission to access this order");
-//        }
-//
-//        return order;
     }
 
     @Transactional
