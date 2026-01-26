@@ -43,7 +43,7 @@ O escopo do sistema consiste nos seguintes casos de uso:
 |Ator| Responsabilidade                                                                      |
 |----|---------------------------------------------------------------------------------------|
 |Usuário anônimo| Pode acessar as áreas públicas do sistema (catálogo de produtos, *login* e *sign up*) |
-|Cliente|Responsável por manter os próprios dados pessoais no sistema, além de pode visualizar o histórico dos próprios pedidos. Todo usuário cadastrado por padrão é um cliente.|
+|Cliente|Responsável por manter os próprios dados pessoais no sistema, além de poder visualizar o histórico dos próprios pedidos. Todo usuário cadastrado por padrão é um cliente.|
 |Administrador|Responsável por acessar a área administrativa do sistema com cadastros e relatórios.|
 
 ## Casos de Uso (Detalhes)
@@ -171,7 +171,7 @@ O número padrão de registros por página deve ser 12. Como a lista é paginada
 #### Cenário de sucesso
 
 1. Executar caso de uso: *Consultar pedidos*
-2. O administrador seleciona uma das opções:
+2. O cliente seleciona uma das opções:
    </br>
    2.1 Variante Inserir
    </br>
