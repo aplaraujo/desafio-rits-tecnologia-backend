@@ -133,29 +133,6 @@ src/
 ├── services
 ```
 
-
-## Funcionamento do Sistema
-
-Autenticação administrador
-</br>
-[![Video Title](https://img.youtube.com/vi/OM1rE6U9kwY/0.jpg)](https://www.youtube.com/watch?v=OM1rE6U9kwY)
-
-Autenticação cliente
-</br>
-[![Video Title](https://img.youtube.com/vi/SfhusM1DWMc/0.jpg)](https://www.youtube.com/watch?v=SfhusM1DWMc)
-
-Catálogo de produtos (público)
-</br>
-[![Video Title](https://img.youtube.com/vi/vEn5qTvfSRQ/0.jpg)](https://www.youtube.com/watch?v=vEn5qTvfSRQ)
-
-Operações CRUD de produtos (administrador)
-</br>
-[![Video Title](https://img.youtube.com/vi/P_aaXRjWsY4/0.jpg)](https://www.youtube.com/watch?v=P_aaXRjWsY4)
-
-Operações CRUD de pedidos (cliente)
-</br>
-[![Video Title](https://img.youtube.com/vi/RNbNB2kYveg/0.jpg)](https://www.youtube.com/watch?v=RNbNB2kYveg)
-
 ## Autora
 
 Ana Paula Lopes Araujo
